@@ -3,7 +3,9 @@ import "dotenv/config";
 import '@typechain/hardhat';
 import "@nomiclabs/hardhat-waffle";
 import "@nomiclabs/hardhat-ethers";
+
 import "hardhat-deploy-ethers";
+import "hardhat-abi-exporter";
 
 import { task } from "hardhat/config";
 import { HardhatUserConfig } from 'hardhat/config';
@@ -44,6 +46,12 @@ const config: HardhatUserConfig = {
   },
   paths: {
     sources: 'contracts',
+  },
+  abiExporter: {
+    path: './data/abi',
+    clear: true,
+    flat: true,
+    spacing: 2
   }
 };
 

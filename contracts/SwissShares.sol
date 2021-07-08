@@ -6,15 +6,15 @@ import "./lib/Admin.sol";
 import "./lib/Whitelist.sol";
 import "hardhat/console.sol";
 
-contract SwissToken is ERC20, Admin, Whitelist {
-  uint256 private constant MAX_AMOUNT = 100000;
+contract SwissShares is ERC20, Admin, Whitelist {
+  uint256 private constant MAX_AMOUNT = 10000000;
   uint256 private constant MIN_AMOUNT = 1;
 
   mapping(address => uint256) private _tokenHolders;
   address[] private _holders;
 
   constructor(uint256 initialSupply)
-    ERC20("SwissToken", "SWT")
+    ERC20("SwissShares", "SSI")
     Admin()
     Whitelist()
   {
@@ -82,6 +82,27 @@ contract SwissToken is ERC20, Admin, Whitelist {
     return _holders;
   }
 
+  function find(address addr) internal view returns (uint256) {
+    uint256 i = 0;
+    while (_holders[i] != addr) {
+      i++;
+    }
+    return i;
+  }
+
+  function remove(uint256 index) internal {
+    require(index < _holders.length, "SwissShares: Index out of bound");
+    if (index == _holders.length) {
+      _holders.pop();
+    } else {
+      // Swap the address of removal with the last address and remove the last element
+      address removalAddress = _holders[index];
+      _holders[index] = _holders[_holders.length - 1];
+      _holders[_holders.length - 1] = removalAddress;
+      _holders.pop();
+    }
+  }
+
   /**
    * @dev Override this method in order to check some conditions before any transfer
    */
@@ -93,27 +114,56 @@ contract SwissToken is ERC20, Admin, Whitelist {
     super._beforeTokenTransfer(from, to, amount);
     require(
       amount >= MIN_AMOUNT,
-      "SwissToken: Minimum amount should be more than 1"
+      "SwissShares: Minimum amount error"
     );
     require(
-      amount < MAX_AMOUNT,
-      "SwissToken: Maximum amount exceeded for transfer"
+      amount <= MAX_AMOUNT,
+      "SwissShares: Maximum amount error"
     );
-    require(amount % 1 == 0, "SwissToken: Can't transfer fractional amount");
+    require(amount % 1 == 0, "SwissShares: Can't transfer fractional amount");
     if (from == address(0)) {
       // Mint call
-      require(isWalletWhitelisted(to), "SwissToken: Receiver is not whitelisted");
+      require(
+        isWalletWhitelisted(to),
+        "SwissShares: Receiver is not whitelisted"
+      );
     } else if (to == address(0)) {
       // Burn call
-      require(isWalletWhitelisted(from), "SwissToken: Sender is not whitelisted");
+      require(
+        isWalletWhitelisted(from),
+        "SwissShares: Sender is not whitelisted"
+      );
     } else {
-      require(isWalletWhitelisted(from), "SwissToken: Sender is not whitelisted");
-      require(isWalletWhitelisted(to), "SwissToken: Receiver is not whitelisted");
+      require(
+        isWalletWhitelisted(from),
+        "SwissShares: Sender is not whitelisted"
+      );
+      require(
+        isWalletWhitelisted(to),
+        "SwissShares: Receiver is not whitelisted"
+      );
     }
-    
+  }
+
+  function _afterTokenTransfer(
+    address from,
+    address to,
+    uint256 amount
+  ) internal virtual override {
+    super._afterTokenTransfer(from, to, amount);
+
     if (_tokenHolders[to] == 0) {
+      // Add the wallet to token holder list
       _holders.push(to);
     }
-    _tokenHolders[to] += amount;
+
+    if (_tokenHolders[from] != 0 && _tokenHolders[from] - amount == 0) {
+      // Remove the wallet from token holder list
+      uint256 index = find(from);
+      remove(index);
+    }
+    // Update the token holdings
+    if(to != address(0)) _tokenHolders[to] += amount;
+    if(from != address(0)) _tokenHolders[from] -= amount;
   }
 }

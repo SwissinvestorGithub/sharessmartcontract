@@ -3,28 +3,28 @@ import { ethers } from "hardhat";
 import { SignerWithAddress } from "@nomiclabs/hardhat-ethers/dist/src/signers";
 import { Contract } from "ethers";
 
-describe("SwissToken", function () {
-  let SwissTokenContract: Contract;
+describe("SwissShares", function () {
+  let SwissSharesContract: Contract;
   let admin: SignerWithAddress;
   let wallet1: SignerWithAddress;
   beforeEach(async () => {
     [admin, wallet1] = await ethers.getSigners();
-    const SwissTokenContractFacory = await ethers.getContractFactory(
-      "SwissToken",
+    const SwissSharesContractFacory = await ethers.getContractFactory(
+      "SwissShares",
       admin
     );
-    SwissTokenContract = await SwissTokenContractFacory.deploy(10000);
-    await SwissTokenContract.deployed();
+    SwissSharesContract = await SwissSharesContractFacory.deploy(10000000);
+    await SwissSharesContract.deployed();
   });
 
-  it("Should initialize SwissToken", async function () {
-    expect(await SwissTokenContract.balanceOf(admin.address)).to.equal(10000);
-    expect(await SwissTokenContract.name()).to.equal("SwissToken");
-    expect(await SwissTokenContract.symbol()).to.equal("SWT");
-    expect(await SwissTokenContract.totalSupply()).to.equal(10000);
+  it("Should initialize SwissShares", async function () {
+    expect(await SwissSharesContract.balanceOf(admin.address)).to.equal(10000000);
+    expect(await SwissSharesContract.name()).to.equal("SwissShares");
+    expect(await SwissSharesContract.symbol()).to.equal("SSI");
+    expect(await SwissSharesContract.totalSupply()).to.equal(10000000);
     await expect(
-      SwissTokenContract.connect(wallet1).totalSupply()
+      SwissSharesContract.connect(wallet1).totalSupply()
     ).to.be.revertedWith("AdminRole: caller does not have the Admin role");
-    expect(await SwissTokenContract.decimals()).to.equal(0);
+    expect(await SwissSharesContract.decimals()).to.equal(0);
   });
 });

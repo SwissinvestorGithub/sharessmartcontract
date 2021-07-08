@@ -14,11 +14,11 @@ async function main() {
   // await hre.run('compile');
 
   // We get the contract to deploy
-  const SwissToken = await (await hre.ethers.getContractFactory("SwissToken")).deploy(10000);
+  const SwissShares = await (await hre.ethers.getContractFactory("SwissShares")).deploy(10000000);
 
-  await SwissToken.deployed();
+  await SwissShares.deployed();
 
-  console.log("SwissToken deployed to:", SwissToken.address);
+  console.log("SwissShares deployed to:", SwissShares.address);
 }
 
 // We recommend this pattern to be able to use async/await everywhere
