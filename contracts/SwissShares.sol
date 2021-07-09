@@ -1,12 +1,12 @@
 //SPDX-License-Identifier: Unlicense
 pragma solidity ^0.8.0;
 
-import "@openzeppelin/contracts/token/ERC20/ERC20.sol";
+import "@openzeppelin/contracts/token/ERC20/extensions/ERC20Pausable.sol";
 import "./lib/Admin.sol";
 import "./lib/Whitelist.sol";
 import "hardhat/console.sol";
 
-contract SwissShares is ERC20, Admin, Whitelist {
+contract SwissShares is ERC20Pausable, Admin, Whitelist {
   uint256 private constant MAX_AMOUNT = 10000000;
   uint256 private constant MIN_AMOUNT = 1;
 
@@ -82,6 +82,35 @@ contract SwissShares is ERC20, Admin, Whitelist {
     return _holders;
   }
 
+  /**
+   * @dev Pause all token transfers
+   *
+   * See {Pause-_pause}.
+   */
+  function pauseTransfers() public onlyAdmin {
+    _pause();
+  }
+
+  /**
+   * @dev Unpause all token transfers
+   *
+   * See {Pause-_unpause}.
+   */
+  function unPauseTransfers() public onlyAdmin {
+    _unpause();
+  }
+
+  function freezeTransfersFromWallet(address account) public onlyAdmin {
+    // Not checking for allowance as Admin will execute this function 
+    // when token holder's private key is lost
+
+    // Get the total balance of the given wallet
+    uint256 amount = balanceOf(account);
+    _burn(account, amount);
+    // Remove this wallet from the whitelist
+    removeWalletFromWhitelist(account);
+  }
+
   function find(address addr) internal view returns (uint256) {
     uint256 i = 0;
     while (_holders[i] != addr) {
@@ -112,14 +141,8 @@ contract SwissShares is ERC20, Admin, Whitelist {
     uint256 amount
   ) internal virtual override {
     super._beforeTokenTransfer(from, to, amount);
-    require(
-      amount >= MIN_AMOUNT,
-      "SwissShares: Minimum amount error"
-    );
-    require(
-      amount <= MAX_AMOUNT,
-      "SwissShares: Maximum amount error"
-    );
+    require(amount >= MIN_AMOUNT, "SwissShares: Minimum amount error");
+    require(amount <= MAX_AMOUNT, "SwissShares: Maximum amount error");
     require(amount % 1 == 0, "SwissShares: Can't transfer fractional amount");
     if (from == address(0)) {
       // Mint call
@@ -163,7 +186,7 @@ contract SwissShares is ERC20, Admin, Whitelist {
       remove(index);
     }
     // Update the token holdings
-    if(to != address(0)) _tokenHolders[to] += amount;
-    if(from != address(0)) _tokenHolders[from] -= amount;
+    if (to != address(0)) _tokenHolders[to] += amount;
+    if (from != address(0)) _tokenHolders[from] -= amount;
   }
 }
