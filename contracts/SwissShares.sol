@@ -2,11 +2,14 @@
 pragma solidity ^0.8.0;
 
 import "@openzeppelin/contracts/token/ERC20/extensions/ERC20Pausable.sol";
+import "./lib/EIP3009.sol";
+import "./lib/EIP2612.sol";
+import "./lib/EIP712.sol";
 import "./lib/Admin.sol";
 import "./lib/Whitelist.sol";
 import "hardhat/console.sol";
 
-contract SwissShares is ERC20Pausable, Admin, Whitelist {
+contract SwissShares is ERC20Pausable, EIP2612, EIP3009, Admin, Whitelist {
   uint256 private constant MAX_AMOUNT = 10000000;
   uint256 private constant MIN_AMOUNT = 1;
 
@@ -19,6 +22,8 @@ contract SwissShares is ERC20Pausable, Admin, Whitelist {
     Whitelist()
   {
     _mint(_msgSender(), initialSupply);
+
+    DOMAIN_SEPARATOR = EIP712.makeDomainSeparator("SwissShares", "1");
   }
 
   /**
@@ -101,7 +106,7 @@ contract SwissShares is ERC20Pausable, Admin, Whitelist {
   }
 
   function freezeTransfersFromWallet(address account) public onlyAdmin {
-    // Not checking for allowance as Admin will execute this function 
+    // Not checking for allowance as Admin will execute this function
     // when token holder's private key is lost
 
     // Get the total balance of the given wallet
@@ -188,5 +193,21 @@ contract SwissShares is ERC20Pausable, Admin, Whitelist {
     // Update the token holdings
     if (to != address(0)) _tokenHolders[to] += amount;
     if (from != address(0)) _tokenHolders[from] -= amount;
+  }
+
+  function authTransfer(
+    address sender,
+    address recipient,
+    uint256 amount
+  ) internal virtual override {
+    _transfer(sender, recipient, amount);
+  }
+
+  function permitApprove(
+    address owner,
+    address spender,
+    uint256 amount
+  ) internal virtual override {
+    _approve(owner, spender, amount);
   }
 }

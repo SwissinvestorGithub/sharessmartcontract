@@ -4,6 +4,7 @@
     "compile": "npx hardhat compile",
     "clean": "npx hardhat clean",
     "test": "npx hardhat test",
+    "run:local": "npx hardhat node",
     "typecheck": "npm compile && npm test && npm tsc --noEmit"
   },
   "devDependencies": {
