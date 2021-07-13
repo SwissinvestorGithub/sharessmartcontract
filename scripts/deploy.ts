@@ -14,7 +14,9 @@ async function main() {
   // await hre.run('compile');
 
   // We get the contract to deploy
-  const SwissShares = await (await hre.ethers.getContractFactory("SwissShares")).deploy(10000000);
+  const SwissShares = await(
+    await hre.ethers.getContractFactory("SwissShares")
+  ).deploy(10000000);
 
   await SwissShares.deployed();
 

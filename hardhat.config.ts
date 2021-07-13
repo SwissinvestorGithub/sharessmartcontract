@@ -3,13 +3,14 @@ import "dotenv/config";
 import '@typechain/hardhat';
 import "@nomiclabs/hardhat-waffle";
 import "@nomiclabs/hardhat-ethers";
+import "@nomiclabs/hardhat-etherscan";
 
 import "hardhat-deploy-ethers";
 import "hardhat-abi-exporter";
 
 import { task } from "hardhat/config";
 import { HardhatUserConfig } from 'hardhat/config';
-import { node_url, accounts } from "./utils/network";
+import { node_url, accounts, accounts_pk } from "./utils/network";
 
 task("blockNumber", "Prints the current block number", async (args, { ethers }) => {
   const blockNumber = await ethers.provider.getBlockNumber();
@@ -39,19 +40,24 @@ const config: HardhatUserConfig = {
     },
     ropsten: {
       url: node_url("ropsten"),
-      accounts: accounts("ropsten"),
+      accounts: accounts_pk("ropsten"),
       gasPrice: "auto",
       gas: "auto",
     },
   },
   paths: {
-    sources: 'contracts',
+    sources: "contracts",
   },
   abiExporter: {
-    path: './data/abi',
+    path: "./data/abi",
     clear: true,
     flat: true,
-    spacing: 2
+    spacing: 2,
+  },
+  etherscan: {
+    // Your API key for Etherscan
+    // Obtain one at https://etherscan.io/
+    apiKey: process.env["ETHERSCAN_API_KEY"]
   }
 };
 

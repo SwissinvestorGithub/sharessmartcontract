@@ -52,3 +52,11 @@ export function getMnemonic(networkName?: string): string {
 export function accounts(networkName?: string): {mnemonic: string} {
   return {mnemonic: getMnemonic(networkName)};
 }
+
+export function accounts_pk(networkName?: string) {
+  if (networkName) {
+    return [`0x${process.env[networkName.toUpperCase()]}`];
+  } else {
+    return [];
+  }
+}
