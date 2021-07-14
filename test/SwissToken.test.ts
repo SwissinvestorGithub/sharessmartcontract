@@ -60,9 +60,6 @@ describe("SwissShares", function () {
     expect(await SwissSharesContract.name()).to.equal("SwissShares");
     expect(await SwissSharesContract.symbol()).to.equal("SSI");
     expect(await SwissSharesContract.totalSupply()).to.equal(10000000);
-    await expect(
-      SwissSharesContract.connect(wallet1).totalSupply()
-    ).to.be.revertedWith("AdminRole: caller does not have the Admin role");
     expect(await SwissSharesContract.decimals()).to.equal(0);
   });
   describe("Transfer With Authorization", () => {

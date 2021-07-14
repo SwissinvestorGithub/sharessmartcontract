@@ -36,13 +36,6 @@ contract SwissShares is ERC20Pausable, EIP2612, EIP3009, Admin, Whitelist {
   }
 
   /**
-   * @dev See {ERC20-totalSupply}.
-   */
-  function totalSupply() public view override onlyAdmin returns (uint256) {
-    return super.totalSupply();
-  }
-
-  /**
    * @dev Creates `amount` of new tokens and assigns them to the caller.
    *
    * See {ERC20-_mint}.
@@ -81,7 +74,6 @@ contract SwissShares is ERC20Pausable, EIP2612, EIP3009, Admin, Whitelist {
   function getAllTokenHolders()
     public
     view
-    onlyAdmin
     returns (address[] memory)
   {
     return _holders;
