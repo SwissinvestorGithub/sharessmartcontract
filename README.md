@@ -1,24 +1,63 @@
 # sharessmartcontract
 Swissinvestor Shares Smart Contract
 
-About the Project:
+## Prerequisites
+
+### `npm install`
+
+Installs all the dependencies to run the project.
+
+### `Add .env file.`
+
+Rename the `.env-example` file to `.env` and add all the required API Keys and Private Keys.
+
+## Available Scripts
+
+In the project directory, you can run:
+
+### `npm run compile`
+
+Compiles all the contracts.
+
+### `npm run test`
+
+Runs the test suite.
+
+### `npm run run:local`
+
+Starts the local hardhat blockchain node where you can deploy the contracts locally and test it.
+
+### `npm run deploy:local`
+
+Deploys the contract on local network. 
+
+### `npm run deploy:ropsten`
+
+Deploys the contract on ropsten network.
+
+### `npm run verify:ropsten`
+
+Verifies the contract deployed on ropsten.
+
+
+## About the Project:
 - Smart Contract in Solidity by using OpenZeppelin
 - Code verification Etherscan
 - Deployment (Ropsten)
 
-Compatibility with existing standards from 
+## Compatibility with existing standards from 
 - ERC-20
 - EIP-2612
 - EIP-3009
 - ERC-1404
 
-Token Parameters
+## Token Parameters
 - Name = SwissShares
 - Symbol = SSI
 - Total Supply = 10.000.000
 - Contract Name = SwissShares
 
-Features
+## Features
 - Global freeze (pause all transactions between holders of the provided token)
 - Wallet freeze (freeze all tokens of a specific wallet)
 - Gas payment (delegate to the admin wallet to pay the gas fees of transactions)
@@ -34,12 +73,12 @@ Features
 - No partial execution (must be executed as a single transaction in the blockchain)
 - Related functions
 
-Etherscan Account
+## Etherscan Account
 - Username = Swissinvestor
 - Email = cezar.souza@swissinvestor.ch
 - Api-Key Token = 645FAQ6CV75S9B17HZZAY3335J39SQQ1BB
 
-Ethereum Wallets
+## Ethereum Wallets
 - Wallet1 = 0x2dA95aD603D4C23b3EfBEDb3eD4e7484D26f2Fc5 
 - The 1st wallet will be controlled by the admin. 
 
