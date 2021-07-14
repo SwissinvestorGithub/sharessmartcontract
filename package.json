@@ -7,7 +7,7 @@
     "run:local": "npx hardhat node",
     "deploy:local": "npx hardhat run scripts/deploy.ts --network localhost",
     "deploy:ropsten": "npx hardhat run scripts/deploy.ts --network ropsten",
-    "verify:ropsten": "npx hardhat verify --network ropsten 0x2b55B6C20e574Bc91A844c29E29c58813b3eEF66 '10000000'",
+    "verify:ropsten": "npx hardhat verify --network ropsten 0xd0d749De324CC856d59b94D415B8bd18325Cc89b '10000000'",
     "typecheck": "npm compile && npm test && npm tsc --noEmit"
   },
   "devDependencies": {
