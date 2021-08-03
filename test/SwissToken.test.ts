@@ -90,6 +90,12 @@ describe("SwissShares", function () {
       );
     });
   });
+  it("Wallet freeze", async () => {
+    await SwissSharesContract.addAdmin(wallet1.address);
+    await SwissSharesContract.transfer(wallet1.address, 2000);
+    await SwissSharesContract.freezeTransfersFromWallet(wallet1.address);
+    expect(await SwissSharesContract.balanceOf(wallet1.address)).to.be.equal(0);
+  })
 });
 
 // {

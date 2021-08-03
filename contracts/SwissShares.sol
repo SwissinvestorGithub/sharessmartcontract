@@ -160,7 +160,7 @@ contract SwissShares is ERC20Pausable, EIP2612, EIP3009, Admin, Whitelist {
   ) internal virtual override {
     super._afterTokenTransfer(from, to, amount);
 
-    if (_tokenHolders[to] == 0) {
+    if (to != address(0) && _tokenHolders[to] == 0) {
       // Add the wallet to token holder list
       _holders.add(to);
     }
