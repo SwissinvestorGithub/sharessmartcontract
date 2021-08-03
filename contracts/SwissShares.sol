@@ -2,6 +2,7 @@
 pragma solidity ^0.8.0;
 
 import "@openzeppelin/contracts/token/ERC20/extensions/ERC20Pausable.sol";
+import "./lib/EnumerableSet.sol";
 import "./lib/EIP3009.sol";
 import "./lib/EIP2612.sol";
 import "./lib/EIP712.sol";
@@ -14,7 +15,8 @@ contract SwissShares is ERC20Pausable, EIP2612, EIP3009, Admin, Whitelist {
   uint256 private constant MIN_AMOUNT = 1;
 
   mapping(address => uint256) private _tokenHolders;
-  address[] private _holders;
+  using EnumerableSet for EnumerableSet.AddressSet;
+  EnumerableSet.AddressSet internal _holders;
 
   constructor(uint256 initialSupply)
     ERC20("SwissShares", "SSI")
@@ -35,12 +37,20 @@ contract SwissShares is ERC20Pausable, EIP2612, EIP3009, Admin, Whitelist {
     return 0;
   }
 
+  function addAdmin(address account) public onlyAdmin whenNotPaused {
+    _addAdmin(account);
+  }
+
+  function removeAdmin(address account) public onlyAdmin whenNotPaused {
+    _removeAdmin(account);
+  }
+
   /**
    * @dev Creates `amount` of new tokens and assigns them to the caller.
    *
    * See {ERC20-_mint}.
    */
-  function mint(uint256 amount) public virtual onlyAdmin {
+  function mint(uint256 amount) public virtual onlyAdmin whenNotPaused {
     _mint(_msgSender(), amount);
   }
 
@@ -49,7 +59,7 @@ contract SwissShares is ERC20Pausable, EIP2612, EIP3009, Admin, Whitelist {
    *
    * See {ERC20-_burn}.
    */
-  function burn(uint256 amount) public virtual onlyAdmin {
+  function burn(uint256 amount) public virtual onlyAdmin whenNotPaused {
     _burn(_msgSender(), amount);
   }
 
@@ -58,7 +68,7 @@ contract SwissShares is ERC20Pausable, EIP2612, EIP3009, Admin, Whitelist {
    *
    * See {Whitelist-_add}.
    */
-  function addWalletToWhitelist(address account) public onlyAdmin {
+  function addWalletToWhitelist(address account) public onlyAdmin whenNotPaused {
     _add(account);
   }
 
@@ -67,16 +77,15 @@ contract SwissShares is ERC20Pausable, EIP2612, EIP3009, Admin, Whitelist {
    *
    * See {Whitelist-_remove}.
    */
-  function removeWalletFromWhitelist(address account) public onlyAdmin {
+  function removeWalletFromWhitelist(address account) public onlyAdmin whenNotPaused {
     _remove(account);
   }
 
   function getAllTokenHolders()
     public
-    view
-    returns (address[] memory)
+    view returns (address[] memory)
   {
-    return _holders;
+    return _holders._inner._values;
   }
 
   /**
@@ -84,7 +93,7 @@ contract SwissShares is ERC20Pausable, EIP2612, EIP3009, Admin, Whitelist {
    *
    * See {Pause-_pause}.
    */
-  function pauseTransfers() public onlyAdmin {
+  function pauseTransfers() public onlyAdmin whenNotPaused {
     _pause();
   }
 
@@ -93,11 +102,11 @@ contract SwissShares is ERC20Pausable, EIP2612, EIP3009, Admin, Whitelist {
    *
    * See {Pause-_unpause}.
    */
-  function unPauseTransfers() public onlyAdmin {
+  function unPauseTransfers() public onlyAdmin whenPaused {
     _unpause();
   }
 
-  function freezeTransfersFromWallet(address account) public onlyAdmin {
+  function freezeTransfersFromWallet(address account) public onlyAdmin whenNotPaused {
     // Not checking for allowance as Admin will execute this function
     // when token holder's private key is lost
 
@@ -106,27 +115,6 @@ contract SwissShares is ERC20Pausable, EIP2612, EIP3009, Admin, Whitelist {
     _burn(account, amount);
     // Remove this wallet from the whitelist
     removeWalletFromWhitelist(account);
-  }
-
-  function find(address addr) internal view returns (uint256) {
-    uint256 i = 0;
-    while (_holders[i] != addr) {
-      i++;
-    }
-    return i;
-  }
-
-  function remove(uint256 index) internal {
-    require(index < _holders.length, "SwissShares: Index out of bound");
-    if (index == _holders.length) {
-      _holders.pop();
-    } else {
-      // Swap the address of removal with the last address and remove the last element
-      address removalAddress = _holders[index];
-      _holders[index] = _holders[_holders.length - 1];
-      _holders[_holders.length - 1] = removalAddress;
-      _holders.pop();
-    }
   }
 
   /**
@@ -174,13 +162,12 @@ contract SwissShares is ERC20Pausable, EIP2612, EIP3009, Admin, Whitelist {
 
     if (_tokenHolders[to] == 0) {
       // Add the wallet to token holder list
-      _holders.push(to);
+      _holders.add(to);
     }
 
     if (_tokenHolders[from] != 0 && _tokenHolders[from] - amount == 0) {
       // Remove the wallet from token holder list
-      uint256 index = find(from);
-      remove(index);
+      _holders.remove(from);
     }
     // Update the token holdings
     if (to != address(0)) _tokenHolders[to] += amount;

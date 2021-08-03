@@ -26,17 +26,9 @@ contract Admin is Context {
     return _admins[account];
   }
 
-  function addAdmin(address account) public onlyAdmin {
-    _addAdmin(account);
-  }
-
   function _addAdmin(address account) internal {
     _admins[account] = true;
     emit AdminAdded(account);
-  }
-
-  function removeAdmin(address account) public onlyAdmin {
-    _removeAdmin(account);
   }
 
   function _removeAdmin(address account) internal {
