@@ -70,7 +70,7 @@ Verifies the contract deployed on ropsten.
 - Mint new tokens (create new tokens by increasing the total supply to the Blockchain)
 - No fraction of token (no fraction in transfer/mind/burn, tokens must have a decimal place set to zero)
 - Minimum transfer amount (1.00 token)
-- Add/remove wallet address as admin (Only admin can add wallet address into whitelist)
+- Add/remove wallet address as admin (Only admin can add/remove wallet address and perform admin actions)
 - Add/remove wallet wallet in the white list (Only wallet address whitelisted can perform transactions)
 - No partial execution (must be executed as a single transaction in the Blockchain)
 - Others Related functions
