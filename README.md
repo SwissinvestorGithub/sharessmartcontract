@@ -74,3 +74,11 @@ Verifies the contract deployed on ropsten.
 - Add/remove wallet wallet in the white list (Only wallet address whitelisted can perform transactions)
 - No partial execution (must be executed as a single transaction in the Blockchain)
 - Others Related functions
+
+## Links
+- Token Transactions https://ropsten.etherscan.io/address/0x5Ec8b797B42e8C4F59D35F54CBC84AbC9FD106a4
+- Token Holders https://ropsten.etherscan.io/token/0x5Ec8b797B42e8C4F59D35F54CBC84AbC9FD106a4#balances
+- Token Chart https://ropsten.etherscan.io/token/tokenholderchart/0x5Ec8b797B42e8C4F59D35F54CBC84AbC9FD106a4
+- Token Code https://ropsten.etherscan.io/address/0x5Ec8b797B42e8C4F59D35F54CBC84AbC9FD106a4#code
+- Token Admin Wallet Address https://ropsten.etherscan.io/address/0x2dA95aD603D4C23b3EfBEDb3eD4e7484D26f2Fc5
+- Token Crowdfunding https://shares.swissinvestor.ch/ 
