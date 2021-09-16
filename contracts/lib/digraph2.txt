@@ -1,0 +1,140 @@
+digraph G {
+  graph [ ratio = "auto", page = "100", compound =true, bgcolor = "#2e3e56" ];
+  node [ style = "filled", fillcolor = "#edad56", color = "#edad56", penwidth =3 ];
+  edge [ color = "#fcfcfc", penwidth =2, fontname = "helvetica Neue Ultra Light" ];
+subgraph "clusterSwissShares" {
+  graph [ label = "SwissShares", color = "#445773", fontcolor = "#f0f0f0", style = "rounded", bgcolor = "#445773" ];
+  "SwissShares.<Constructor>" [ label = "<Constructor>", color = "#FF9797", fillcolor = "#FF9797" ];
+  "SwissShares.decimals" [ label = "decimals", color = "#FF9797", fillcolor = "#FF9797" ];
+  "SwissShares.addAdmin" [ label = "addAdmin", color = "#FF9797", fillcolor = "#FF9797" ];
+  "SwissShares.removeAdmin" [ label = "removeAdmin", color = "#FF9797", fillcolor = "#FF9797" ];
+  "SwissShares.mint" [ label = "mint", color = "#FF9797", fillcolor = "#FF9797" ];
+  "SwissShares.burn" [ label = "burn", color = "#FF9797", fillcolor = "#FF9797" ];
+  "SwissShares.addWalletToWhitelist" [ label = "addWalletToWhitelist", color = "#FF9797", fillcolor = "#FF9797" ];
+  "SwissShares.removeWalletFromWhitelist" [ label = "removeWalletFromWhitelist", color = "#FF9797", fillcolor = "#FF9797" ];
+  "SwissShares.getAllTokenHolders" [ label = "getAllTokenHolders", color = "#FF9797", fillcolor = "#FF9797" ];
+  "SwissShares.pauseTransfers" [ label = "pauseTransfers", color = "#FF9797", fillcolor = "#FF9797" ];
+  "SwissShares.unPauseTransfers" [ label = "unPauseTransfers", color = "#FF9797", fillcolor = "#FF9797" ];
+  "SwissShares.freezeTransfersFromWallet" [ label = "freezeTransfersFromWallet", color = "#FF9797", fillcolor = "#FF9797" ];
+  "SwissShares._beforeTokenTransfer" [ label = "_beforeTokenTransfer", color = "#f2c383", fillcolor = "#f2c383" ];
+  "SwissShares._afterTokenTransfer" [ label = "_afterTokenTransfer", color = "#f2c383", fillcolor = "#f2c383" ];
+  "SwissShares.authTransfer" [ label = "authTransfer", color = "#f2c383", fillcolor = "#f2c383" ];
+  "SwissShares.permitApprove" [ label = "permitApprove", color = "#f2c383", fillcolor = "#f2c383" ];
+  "SwissShares._mint" [ label = "_mint" ];
+  "SwissShares._msgSender" [ label = "_msgSender" ];
+  "SwissShares._addAdmin" [ label = "_addAdmin" ];
+  "SwissShares._removeAdmin" [ label = "_removeAdmin" ];
+  "SwissShares._burn" [ label = "_burn" ];
+  "SwissShares._add" [ label = "_add" ];
+  "SwissShares._remove" [ label = "_remove" ];
+  "SwissShares._pause" [ label = "_pause" ];
+  "SwissShares._unpause" [ label = "_unpause" ];
+  "SwissShares.balanceOf" [ label = "balanceOf" ];
+  "SwissShares.isWalletWhitelisted" [ label = "isWalletWhitelisted" ];
+  "SwissShares._transfer" [ label = "_transfer" ];
+  "SwissShares._approve" [ label = "_approve" ];
+}
+
+subgraph "clusterEIP712" {
+  graph [ label = "EIP712", color = "#e8726d", fontcolor = "#f0f0f0", style = "rounded,dashed", bgcolor = "#3b4b63" ];
+  "EIP712.makeDomainSeparator" [ label = "makeDomainSeparator" ];
+}
+
+subgraph "clusterWhitelist" {
+  graph [ label = "Whitelist", color = "#e8726d", fontcolor = "#f0f0f0", style = "rounded,dashed", bgcolor = "#3b4b63" ];
+  "Whitelist._beforeTokenTransfer" [ label = "_beforeTokenTransfer" ];
+  "Whitelist._afterTokenTransfer" [ label = "_afterTokenTransfer" ];
+}
+
+subgraph "clusterEnumerableSet.AddressSet" {
+  graph [ label = "EnumerableSet.AddressSet", color = "#e8726d", fontcolor = "#f0f0f0", style = "rounded,dashed", bgcolor = "#3b4b63" ];
+  "EnumerableSet.AddressSet.add" [ label = "add" ];
+  "EnumerableSet.AddressSet.remove" [ label = "remove" ];
+}
+
+  "SwissShares.<Constructor>";
+  "SwissShares._mint";
+  "SwissShares._msgSender";
+  "EIP712.makeDomainSeparator";
+  "SwissShares.addAdmin";
+  "SwissShares._addAdmin";
+  "SwissShares.removeAdmin";
+  "SwissShares._removeAdmin";
+  "SwissShares.mint";
+  "SwissShares.burn";
+  "SwissShares._burn";
+  "SwissShares.addWalletToWhitelist";
+  "SwissShares._add";
+  "SwissShares.removeWalletFromWhitelist";
+  "SwissShares._remove";
+  "SwissShares.pauseTransfers";
+  "SwissShares._pause";
+  "SwissShares.unPauseTransfers";
+  "SwissShares._unpause";
+  "SwissShares.freezeTransfersFromWallet";
+  "SwissShares.balanceOf";
+  "SwissShares._beforeTokenTransfer";
+  "Whitelist._beforeTokenTransfer";
+  "SwissShares.isWalletWhitelisted";
+  "SwissShares._afterTokenTransfer";
+  "Whitelist._afterTokenTransfer";
+  "EnumerableSet.AddressSet.add";
+  "EnumerableSet.AddressSet.remove";
+  "SwissShares.authTransfer";
+  "SwissShares._transfer";
+  "SwissShares.permitApprove";
+  "SwissShares._approve";
+  "SwissShares.<Constructor>" -> "SwissShares._mint" [ color = "#1bc6a6" ];
+  "SwissShares.<Constructor>" -> "SwissShares._msgSender" [ color = "#1bc6a6" ];
+  "SwissShares.<Constructor>" -> "EIP712.makeDomainSeparator" [ color = "white" ];
+  "SwissShares.addAdmin" -> "SwissShares._addAdmin" [ color = "#1bc6a6" ];
+  "SwissShares.removeAdmin" -> "SwissShares._removeAdmin" [ color = "#1bc6a6" ];
+  "SwissShares.mint" -> "SwissShares._mint" [ color = "#1bc6a6" ];
+  "SwissShares.mint" -> "SwissShares._msgSender" [ color = "#1bc6a6" ];
+  "SwissShares.burn" -> "SwissShares._burn" [ color = "#1bc6a6" ];
+  "SwissShares.burn" -> "SwissShares._msgSender" [ color = "#1bc6a6" ];
+  "SwissShares.addWalletToWhitelist" -> "SwissShares._add" [ color = "#1bc6a6" ];
+  "SwissShares.removeWalletFromWhitelist" -> "SwissShares._remove" [ color = "#1bc6a6" ];
+  "SwissShares.pauseTransfers" -> "SwissShares._pause" [ color = "#1bc6a6" ];
+  "SwissShares.unPauseTransfers" -> "SwissShares._unpause" [ color = "#1bc6a6" ];
+  "SwissShares.freezeTransfersFromWallet" -> "SwissShares.balanceOf" [ color = "#1bc6a6" ];
+  "SwissShares.freezeTransfersFromWallet" -> "SwissShares._burn" [ color = "#1bc6a6" ];
+  "SwissShares.freezeTransfersFromWallet" -> "SwissShares.removeWalletFromWhitelist" [ color = "#1bc6a6" ];
+  "SwissShares._beforeTokenTransfer" -> "Whitelist._beforeTokenTransfer" [ color = "white" ];
+  "SwissShares._beforeTokenTransfer" -> "SwissShares.isWalletWhitelisted" [ color = "#1bc6a6" ];
+  "SwissShares._beforeTokenTransfer" -> "SwissShares.isWalletWhitelisted" [ color = "#1bc6a6" ];
+  "SwissShares._beforeTokenTransfer" -> "SwissShares.isWalletWhitelisted" [ color = "#1bc6a6" ];
+  "SwissShares._beforeTokenTransfer" -> "SwissShares.isWalletWhitelisted" [ color = "#1bc6a6" ];
+  "SwissShares._afterTokenTransfer" -> "Whitelist._afterTokenTransfer" [ color = "white" ];
+  "SwissShares._afterTokenTransfer" -> "EnumerableSet.AddressSet.add" [ color = "white" ];
+  "SwissShares._afterTokenTransfer" -> "EnumerableSet.AddressSet.remove" [ color = "white" ];
+  "SwissShares.authTransfer" -> "SwissShares._transfer" [ color = "#1bc6a6" ];
+  "SwissShares.permitApprove" -> "SwissShares._approve" [ color = "#1bc6a6" ];
+
+
+rankdir=LR
+node [shape=plaintext]
+subgraph cluster_01 { 
+label = "Legend";
+key [label=<<table border="0" cellpadding="2" cellspacing="0" cellborder="0">
+  <tr><td align="right" port="i1">Internal Call</td></tr>
+  <tr><td align="right" port="i2">External Call</td></tr>
+  <tr><td align="right" port="i3">Defined Contract</td></tr>
+  <tr><td align="right" port="i4">Undefined Contract</td></tr>
+  </table>>]
+key2 [label=<<table border="0" cellpadding="2" cellspacing="0" cellborder="0">
+  <tr><td port="i1">&nbsp;&nbsp;&nbsp;</td></tr>
+  <tr><td port="i2">&nbsp;&nbsp;&nbsp;</td></tr>
+  <tr><td port="i3" bgcolor="#445773">&nbsp;&nbsp;&nbsp;</td></tr>
+  <tr><td port="i4">
+    <table border="1" cellborder="0" cellspacing="0" cellpadding="7" color="#e8726d">
+      <tr>
+       <td></td>
+      </tr>
+     </table>
+  </td></tr>
+  </table>>]
+key:i1:e -> key2:i1:w [color="#1bc6a6"]
+key:i2:e -> key2:i2:w [color="white"]
+}
+}

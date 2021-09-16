@@ -1,0 +1,14 @@
+digraph G {
+  graph [ ratio = "auto", page = "40" ];
+  "SwissShares";
+  "ERC20Pausable";
+  "EIP2612";
+  "EIP3009";
+  "Admin";
+  "Whitelist";
+  "SwissShares" -> "ERC20Pausable";
+  "SwissShares" -> "EIP2612";
+  "SwissShares" -> "EIP3009";
+  "SwissShares" -> "Admin";
+  "SwissShares" -> "Whitelist";
+}
