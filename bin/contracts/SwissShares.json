@@ -924,7 +924,7 @@
             ]
         },
         "id": 440,
-        "license": "Unlicense",
+        "license": "MIT",
         "nodeType": "SourceUnit",
         "nodes": [
             {

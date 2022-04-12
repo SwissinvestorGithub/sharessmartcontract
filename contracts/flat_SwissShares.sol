@@ -1,10 +1,11 @@
-
 /** 
  *  SourceUnit: c:\xampp\htdocs\sharessmartcontract\contracts\SwissShares.sol
 */
             
-////// SPDX-License-Identifier-FLATTEN-SUPPRESS-WARNING: MIT
-pragma solidity >= 0.4.22 <0.9.0;
+// SPDX-License-Identifier: MIT
+
+//pragma solidity >= 0.4.22 <0.9.0;
+pragma solidity ^0.8.0;
 
 library console {
 	address constant CONSOLE_ADDRESS = address(0x000000000000000000636F6e736F6c652e6c6f67);
@@ -1543,7 +1544,7 @@ library console {
  *  SourceUnit: c:\xampp\htdocs\sharessmartcontract\contracts\SwissShares.sol
 */
             
-////// SPDX-License-Identifier-FLATTEN-SUPPRESS-WARNING: MIT
+// SPDX-License-Identifier: MIT
 
 pragma solidity ^0.8.0;
 
@@ -1574,30 +1575,7 @@ abstract contract Context {
  *  SourceUnit: c:\xampp\htdocs\sharessmartcontract\contracts\SwissShares.sol
 */
             
-/**
- * SPDX-License-Identifier: MIT
- *
- * Copyright (c) 2016-2019 zOS Global Limited
- * Copyright (c) 2020 CENTRE SECZ
- *
- * Permission is hereby granted, free of charge, to any person obtaining a copy
- * of this software and associated documentation files (the "Software"), to deal
- * in the Software without restriction, including without limitation the rights
- * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
- * copies of the Software, and to permit persons to whom the Software is
- * furnished to do so, subject to the following conditions:
- *
- * The above copyright notice and this permission notice shall be included in
- * copies or substantial portions of the Software.
- *
- * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
- * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
- * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
- * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
- * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
- * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
- * SOFTWARE.
- */
+// SPDX-License-Identifier: MIT
 
 pragma solidity ^0.8.0;
 
@@ -1656,29 +1634,7 @@ library ECRecover {
  *  SourceUnit: c:\xampp\htdocs\sharessmartcontract\contracts\SwissShares.sol
 */
             
-/**
- * SPDX-License-Identifier: MIT
- *
- * Copyright (c) 2020 CENTRE SECZ
- *
- * Permission is hereby granted, free of charge, to any person obtaining a copy
- * of this software and associated documentation files (the "Software"), to deal
- * in the Software without restriction, including without limitation the rights
- * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
- * copies of the Software, and to permit persons to whom the Software is
- * furnished to do so, subject to the following conditions:
- *
- * The above copyright notice and this permission notice shall be included in
- * copies or substantial portions of the Software.
- *
- * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
- * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
- * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
- * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
- * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
- * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
- * SOFTWARE.
- */
+// SPDX-License-Identifier: MIT
 
 pragma solidity ^0.8.0;
 
@@ -1754,7 +1710,7 @@ library EIP712 {
  *  SourceUnit: c:\xampp\htdocs\sharessmartcontract\contracts\SwissShares.sol
 */
             
-////// SPDX-License-Identifier-FLATTEN-SUPPRESS-WARNING: MIT
+// SPDX-License-Identifier: MIT
 
 pragma solidity ^0.8.0;
 
@@ -1771,7 +1727,7 @@ abstract contract EIP712Domain {
  *  SourceUnit: c:\xampp\htdocs\sharessmartcontract\contracts\SwissShares.sol
 */
             
-////// SPDX-License-Identifier-FLATTEN-SUPPRESS-WARNING: MIT
+// SPDX-License-Identifier: MIT
 
 pragma solidity ^0.8.0;
 
@@ -1860,7 +1816,7 @@ interface IERC20 {
  *  SourceUnit: c:\xampp\htdocs\sharessmartcontract\contracts\SwissShares.sol
 */
             
-////// SPDX-License-Identifier-FLATTEN-SUPPRESS-WARNING: MIT
+// SPDX-License-Identifier: MIT
 
 pragma solidity ^0.8.0;
 
@@ -1895,7 +1851,7 @@ interface IERC20Metadata is IERC20 {
  *  SourceUnit: c:\xampp\htdocs\sharessmartcontract\contracts\SwissShares.sol
 */
             
-////// SPDX-License-Identifier-FLATTEN-SUPPRESS-WARNING: MIT
+// SPDX-License-Identifier: MIT
 
 pragma solidity ^0.8.0;
 
@@ -1993,7 +1949,7 @@ abstract contract Pausable is Context {
  *  SourceUnit: c:\xampp\htdocs\sharessmartcontract\contracts\SwissShares.sol
 */
             
-////// SPDX-License-Identifier-FLATTEN-SUPPRESS-WARNING: MIT
+// SPDX-License-Identifier: MIT
 
 pragma solidity ^0.8.0;
 
@@ -2355,7 +2311,8 @@ contract ERC20 is Context, IERC20, IERC20Metadata {
  *  SourceUnit: c:\xampp\htdocs\sharessmartcontract\contracts\SwissShares.sol
 */
             
-//SPDX-License-Identifier: Unlicense
+// SPDX-License-Identifier: MIT
+
 pragma solidity ^0.8.0;
 
 ////import "@openzeppelin/contracts/utils/Context.sol";
@@ -2395,7 +2352,8 @@ contract Whitelist is Context {
  *  SourceUnit: c:\xampp\htdocs\sharessmartcontract\contracts\SwissShares.sol
 */
             
-//SPDX-License-Identifier: Unlicense
+// SPDX-License-Identifier: MIT
+
 pragma solidity ^0.8.0;
 
 ////import "@openzeppelin/contracts/utils/Context.sol";
@@ -2442,29 +2400,7 @@ contract Admin is Context {
  *  SourceUnit: c:\xampp\htdocs\sharessmartcontract\contracts\SwissShares.sol
 */
             
-/**
- * SPDX-License-Identifier: MIT
- *
- * Copyright (c) 2020 CENTRE SECZ
- *
- * Permission is hereby granted, free of charge, to any person obtaining a copy
- * of this software and associated documentation files (the "Software"), to deal
- * in the Software without restriction, including without limitation the rights
- * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
- * copies of the Software, and to permit persons to whom the Software is
- * furnished to do so, subject to the following conditions:
- *
- * The above copyright notice and this permission notice shall be included in
- * copies or substantial portions of the Software.
- *
- * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
- * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
- * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
- * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
- * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
- * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
- * SOFTWARE.
- */
+// SPDX-License-Identifier: MIT
 
 pragma solidity ^0.8.0;
 
@@ -2537,29 +2473,7 @@ abstract contract EIP2612 is EIP712Domain {
  *  SourceUnit: c:\xampp\htdocs\sharessmartcontract\contracts\SwissShares.sol
 */
             
-/**
- * SPDX-License-Identifier: MIT
- *
- * Copyright (c) 2020 CENTRE SECZ
- *
- * Permission is hereby granted, free of charge, to any person obtaining a copy
- * of this software and associated documentation files (the "Software"), to deal
- * in the Software without restriction, including without limitation the rights
- * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
- * copies of the Software, and to permit persons to whom the Software is
- * furnished to do so, subject to the following conditions:
- *
- * The above copyright notice and this permission notice shall be included in
- * copies or substantial portions of the Software.
- *
- * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
- * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
- * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
- * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
- * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
- * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
- * SOFTWARE.
- */
+// SPDX-License-Identifier: MIT
 
 pragma solidity ^0.8.0;
 
@@ -2773,7 +2687,7 @@ abstract contract EIP3009 is EIP712Domain {
  *  SourceUnit: c:\xampp\htdocs\sharessmartcontract\contracts\SwissShares.sol
 */
             
-////// SPDX-License-Identifier-FLATTEN-SUPPRESS-WARNING: MIT
+// SPDX-License-Identifier: MIT
 
 pragma solidity ^0.8.0;
 
@@ -2967,7 +2881,7 @@ library EnumerableSet {
  *  SourceUnit: c:\xampp\htdocs\sharessmartcontract\contracts\SwissShares.sol
 */
             
-////// SPDX-License-Identifier-FLATTEN-SUPPRESS-WARNING: MIT
+// SPDX-License-Identifier: MIT
 
 pragma solidity ^0.8.0;
 
@@ -3005,7 +2919,8 @@ abstract contract ERC20Pausable is ERC20, Pausable {
  *  SourceUnit: c:\xampp\htdocs\sharessmartcontract\contracts\SwissShares.sol
 */
 
-//SPDX-License-Identifier: Unlicense
+// SPDX-License-Identifier: MIT
+
 pragma solidity ^0.8.0;
 
 ////import "@openzeppelin/contracts/token/ERC20/extensions/ERC20Pausable.sol";

@@ -11,6 +11,11 @@ Installs all the dependencies to run the project.
 
 Rename the `.env-example` file to `.env` and add all the required API Keys and Private Keys.
 
+### `npm cache clean --force`
+### `npm install`
+### `npm audit fix`
+### `npm audit`
+
 ## Available Scripts
 
 In the project directory, you can run:
