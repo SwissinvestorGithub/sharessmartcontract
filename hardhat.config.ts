@@ -38,18 +38,18 @@ const config: HardhatUserConfig = {
       gasPrice: "auto",
       gas: "auto",
     },
-    /* ropsten: {
+    ropsten: {
       url: node_url("ropsten"),
       accounts: accounts_pk("ropsten"),
       gasPrice: "auto",
       gas: "auto",
-    }, */
-    mainnet: {
+    },
+    /* mainnet: {
       url: node_url("mainnet"),
       accounts: accounts_pk("mainnet"),
       gasPrice: "auto",
       gas: "auto",
-    },
+    }, */
   },
   paths: {
     sources: "contracts",

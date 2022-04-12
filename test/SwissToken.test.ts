@@ -47,7 +47,7 @@ describe("SwissShares", function () {
       "SwissShares",
       admin
     );
-    SwissSharesContract = await SwissSharesContractFacory.deploy(10000000);
+    SwissSharesContract = await SwissSharesContractFacory.deploy(30000000);
     await SwissSharesContract.deployed();
     await SwissSharesContract.addWalletToWhitelist(wallet1.address);
     await SwissSharesContract.addWalletToWhitelist(wallet2.address);
@@ -55,11 +55,11 @@ describe("SwissShares", function () {
 
   it("Should initialize SwissShares", async function () {
     expect(await SwissSharesContract.balanceOf(admin.address)).to.equal(
-      10000000
+      30000000
     );
     expect(await SwissSharesContract.name()).to.equal("SwissShares");
     expect(await SwissSharesContract.symbol()).to.equal("SSI");
-    expect(await SwissSharesContract.totalSupply()).to.equal(10000000);
+    expect(await SwissSharesContract.totalSupply()).to.equal(30000000);
     expect(await SwissSharesContract.decimals()).to.equal(0);
   });
   describe("Transfer With Authorization", () => {

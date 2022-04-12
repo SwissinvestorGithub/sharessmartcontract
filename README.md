@@ -37,10 +37,12 @@ Starts the local hardhat blockchain node where you can deploy the contracts loca
 Deploys the contract on local network. 
 
 ### `npm run deploy:ropsten`
+### `npm run deploy:mainnet`
 
 Deploys the contract on ropsten network.
 
 ### `npm run verify:ropsten`
+### `npm run verify:mainnet`
 
 Verifies the contract deployed on ropsten.
 

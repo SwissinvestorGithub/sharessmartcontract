@@ -12,7 +12,7 @@ import "./lib/Whitelist.sol";
 import "hardhat/console.sol";
 
 contract SwissShares is ERC20Pausable, EIP2612, EIP3009, Admin, Whitelist {
-  uint256 private constant MAX_AMOUNT = 10000000;
+  uint256 private constant MAX_AMOUNT = 30000000;
   uint256 private constant MIN_AMOUNT = 1;
 
   mapping(address => uint256) private _tokenHolders;

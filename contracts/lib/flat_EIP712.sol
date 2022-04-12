@@ -1,7 +1,3 @@
-/** 
- *  SourceUnit: c:\xampp\htdocs\sharessmartcontract\contracts\lib\EIP712.sol
-*/
-            
 // SPDX-License-Identifier: MIT
 
 pragma solidity ^0.8.0;
@@ -54,10 +50,6 @@ library ECRecover {
         return signer;
     }
 }
-
-/** 
- *  SourceUnit: c:\xampp\htdocs\sharessmartcontract\contracts\lib\EIP712.sol
-*/
 
 pragma solidity ^0.8.0;
 

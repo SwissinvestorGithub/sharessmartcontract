@@ -367,10 +367,10 @@
                             "nodeType": "Literal",
                             "src": "625:8:0",
                             "typeDescriptions": {
-                                "typeIdentifier": "t_rational_10000000_by_1",
-                                "typeString": "int_const 10000000"
+                                "typeIdentifier": "t_rational_30000000_by_1",
+                                "typeString": "int_const 30000000"
                             },
-                            "value": "10000000"
+                            "value": "30000000"
                         },
                         "visibility": "private"
                     },

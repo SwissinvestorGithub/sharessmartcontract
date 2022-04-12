@@ -1,7 +1,3 @@
-/** 
- *  SourceUnit: c:\xampp\htdocs\sharessmartcontract\contracts\SwissShares.sol
-*/    
-
 // SPDX-License-Identifier: MIT
 
 pragma solidity >= 0.4.22 <0.9.0;
@@ -1535,11 +1531,7 @@ library console {
 	}
 
 }
-
-/** 
- *  SourceUnit: c:\xampp\htdocs\sharessmartcontract\contracts\SwissShares.sol
-*/
-            
+       
 pragma solidity ^0.8.0;
 
 /*
@@ -1561,10 +1553,6 @@ abstract contract Context {
         return msg.data;
     }
 }
-
-/** 
- *  SourceUnit: c:\xampp\htdocs\sharessmartcontract\contracts\SwissShares.sol
-*/
             
 pragma solidity ^0.8.0;
 
@@ -1616,10 +1604,6 @@ library ECRecover {
         return signer;
     }
 }
-
-/** 
- *  SourceUnit: c:\xampp\htdocs\sharessmartcontract\contracts\SwissShares.sol
-*/
             
 pragma solidity ^0.8.0;
 
@@ -1688,11 +1672,7 @@ library EIP712 {
         return ECRecover.recover(digest, v, r, s);
     }
 }
-
-/** 
- *  SourceUnit: c:\xampp\htdocs\sharessmartcontract\contracts\SwissShares.sol
-*/
-            
+       
 pragma solidity ^0.8.0;
 
 abstract contract EIP712Domain {
@@ -1701,10 +1681,6 @@ abstract contract EIP712Domain {
      */
     bytes32 public DOMAIN_SEPARATOR;
 }
-
-/** 
- *  SourceUnit: c:\xampp\htdocs\sharessmartcontract\contracts\SwissShares.sol
-*/
 
 pragma solidity ^0.8.0;
 
@@ -1785,11 +1761,7 @@ interface IERC20 {
      */
     event Approval(address indexed owner, address indexed spender, uint256 value);
 }
-
-/** 
- *  SourceUnit: c:\xampp\htdocs\sharessmartcontract\contracts\SwissShares.sol
-*/
-            
+        
 pragma solidity ^0.8.0;
 
 ////import "../IERC20.sol";
@@ -1815,10 +1787,6 @@ interface IERC20Metadata is IERC20 {
      */
     function decimals() external view returns (uint8);
 }
-
-/** 
- *  SourceUnit: c:\xampp\htdocs\sharessmartcontract\contracts\SwissShares.sol
-*/
             
 pragma solidity ^0.8.0;
 
@@ -1908,10 +1876,6 @@ abstract contract Pausable is Context {
         emit Unpaused(_msgSender());
     }
 }
-
-/** 
- *  SourceUnit: c:\xampp\htdocs\sharessmartcontract\contracts\SwissShares.sol
-*/
 
 pragma solidity ^0.8.0;
 
@@ -2266,10 +2230,6 @@ contract ERC20 is Context, IERC20, IERC20Metadata {
     ) internal virtual {}
 }
 
-/** 
- *  SourceUnit: c:\xampp\htdocs\sharessmartcontract\contracts\SwissShares.sol
-*/
-
 pragma solidity ^0.8.0;
 
 ////import "@openzeppelin/contracts/utils/Context.sol";
@@ -2302,10 +2262,6 @@ contract Whitelist is Context {
   } 
 }
 
-/** 
- *  SourceUnit: c:\xampp\htdocs\sharessmartcontract\contracts\SwissShares.sol
-*/
-            
 pragma solidity ^0.8.0;
 
 ////import "@openzeppelin/contracts/utils/Context.sol";
@@ -2344,10 +2300,6 @@ contract Admin is Context {
     emit AdminRemoved(account);
   }
 }
-
-/** 
- *  SourceUnit: c:\xampp\htdocs\sharessmartcontract\contracts\SwissShares.sol
-*/
             
 pragma solidity ^0.8.0;
 
@@ -2413,11 +2365,7 @@ abstract contract EIP2612 is EIP712Domain {
         uint256 amount
     ) internal virtual;
 }
-
-/** 
- *  SourceUnit: c:\xampp\htdocs\sharessmartcontract\contracts\SwissShares.sol
-*/
-            
+       
 pragma solidity ^0.8.0;
 
 ////import { EIP712Domain } from "./EIP712Domain.sol";
@@ -2624,10 +2572,6 @@ abstract contract EIP3009 is EIP712Domain {
     ) internal virtual;
 }
 
-/** 
- *  SourceUnit: c:\xampp\htdocs\sharessmartcontract\contracts\SwissShares.sol
-*/
-
 pragma solidity ^0.8.0;
 
 /**
@@ -2812,10 +2756,6 @@ library EnumerableSet {
         return _at(set._inner, index);
     }
 }
-
-/** 
- *  SourceUnit: c:\xampp\htdocs\sharessmartcontract\contracts\SwissShares.sol
-*/
             
 pragma solidity ^0.8.0;
 
@@ -2848,10 +2788,6 @@ abstract contract ERC20Pausable is ERC20, Pausable {
     }
 }
 
-/** 
- *  SourceUnit: c:\xampp\htdocs\sharessmartcontract\contracts\SwissShares.sol
-*/
-
 pragma solidity ^0.8.0;
 
 ////import "@openzeppelin/contracts/token/ERC20/extensions/ERC20Pausable.sol";
@@ -2864,7 +2800,7 @@ pragma solidity ^0.8.0;
 ////import "hardhat/console.sol";
 
 contract SwissShares is ERC20Pausable, EIP2612, EIP3009, Admin, Whitelist {
-  uint256 private constant MAX_AMOUNT = 10000000;
+  uint256 private constant MAX_AMOUNT = 30000000;
   uint256 private constant MIN_AMOUNT = 1;
 
   mapping(address => uint256) private _tokenHolders;

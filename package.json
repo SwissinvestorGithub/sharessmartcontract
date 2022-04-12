@@ -7,9 +7,9 @@
         "run:local": "npx hardhat node",
         "deploy:local": "npx hardhat run scripts/deploy.ts --network localhost",
         "deploy:ropsten": "npx hardhat run scripts/deploy.ts --network ropsten",
-        "verify:ropsten": "npx hardhat verify --network ropsten 0xF8B3E99d5A3dD6F09F4b44e258a43e7fA4e4820b 10000000",
+        "verify:ropsten": "npx hardhat verify --network ropsten 0xF8B3E99d5A3dD6F09F4b44e258a43e7fA4e4820b 30000000",
         "deploy:mainnet": "npx hardhat run scripts/deploy.ts --network mainnet",
-        "verify:mainnet": "npx hardhat verify --network mainnet 0xF8B3E99d5A3dD6F09F4b44e258a43e7fA4e4820b 10000000",
+        "verify:mainnet": "npx hardhat verify --network mainnet 0xF8B3E99d5A3dD6F09F4b44e258a43e7fA4e4820b 30000000",
         "typecheck": "npm compile && npm test && npm tsc --noEmit"
     },
     "devDependencies": {

@@ -1,7 +1,3 @@
-/** 
- *  SourceUnit: c:\xampp\htdocs\sharessmartcontract\contracts\lib\EnumerableSet.sol
-*/
-
 // SPDX-License-Identifier: MIT
 
 pragma solidity ^0.8.0;
