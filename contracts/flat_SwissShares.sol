@@ -1,11 +1,10 @@
 /** 
  *  SourceUnit: c:\xampp\htdocs\sharessmartcontract\contracts\SwissShares.sol
-*/
-            
+*/    
+
 // SPDX-License-Identifier: MIT
 
-//pragma solidity >= 0.4.22 <0.9.0;
-pragma solidity ^0.8.0;
+pragma solidity >= 0.4.22 <0.9.0;
 
 library console {
 	address constant CONSOLE_ADDRESS = address(0x000000000000000000636F6e736F6c652e6c6f67);
@@ -1537,15 +1536,10 @@ library console {
 
 }
 
-
-
-
 /** 
  *  SourceUnit: c:\xampp\htdocs\sharessmartcontract\contracts\SwissShares.sol
 */
             
-// SPDX-License-Identifier: MIT
-
 pragma solidity ^0.8.0;
 
 /*
@@ -1568,15 +1562,10 @@ abstract contract Context {
     }
 }
 
-
-
-
 /** 
  *  SourceUnit: c:\xampp\htdocs\sharessmartcontract\contracts\SwissShares.sol
 */
             
-// SPDX-License-Identifier: MIT
-
 pragma solidity ^0.8.0;
 
 /**
@@ -1628,14 +1617,10 @@ library ECRecover {
     }
 }
 
-
-
 /** 
  *  SourceUnit: c:\xampp\htdocs\sharessmartcontract\contracts\SwissShares.sol
 */
             
-// SPDX-License-Identifier: MIT
-
 pragma solidity ^0.8.0;
 
 ////import { ECRecover } from "./ECRecover.sol";
@@ -1704,14 +1689,10 @@ library EIP712 {
     }
 }
 
-
-
 /** 
  *  SourceUnit: c:\xampp\htdocs\sharessmartcontract\contracts\SwissShares.sol
 */
             
-// SPDX-License-Identifier: MIT
-
 pragma solidity ^0.8.0;
 
 abstract contract EIP712Domain {
@@ -1721,13 +1702,9 @@ abstract contract EIP712Domain {
     bytes32 public DOMAIN_SEPARATOR;
 }
 
-
-
 /** 
  *  SourceUnit: c:\xampp\htdocs\sharessmartcontract\contracts\SwissShares.sol
 */
-            
-// SPDX-License-Identifier: MIT
 
 pragma solidity ^0.8.0;
 
@@ -1809,15 +1786,10 @@ interface IERC20 {
     event Approval(address indexed owner, address indexed spender, uint256 value);
 }
 
-
-
-
 /** 
  *  SourceUnit: c:\xampp\htdocs\sharessmartcontract\contracts\SwissShares.sol
 */
             
-// SPDX-License-Identifier: MIT
-
 pragma solidity ^0.8.0;
 
 ////import "../IERC20.sol";
@@ -1844,15 +1816,10 @@ interface IERC20Metadata is IERC20 {
     function decimals() external view returns (uint8);
 }
 
-
-
-
 /** 
  *  SourceUnit: c:\xampp\htdocs\sharessmartcontract\contracts\SwissShares.sol
 */
             
-// SPDX-License-Identifier: MIT
-
 pragma solidity ^0.8.0;
 
 ////import "../utils/Context.sol";
@@ -1942,14 +1909,9 @@ abstract contract Pausable is Context {
     }
 }
 
-
-
-
 /** 
  *  SourceUnit: c:\xampp\htdocs\sharessmartcontract\contracts\SwissShares.sol
 */
-            
-// SPDX-License-Identifier: MIT
 
 pragma solidity ^0.8.0;
 
@@ -2304,14 +2266,9 @@ contract ERC20 is Context, IERC20, IERC20Metadata {
     ) internal virtual {}
 }
 
-
-
-
 /** 
  *  SourceUnit: c:\xampp\htdocs\sharessmartcontract\contracts\SwissShares.sol
 */
-            
-// SPDX-License-Identifier: MIT
 
 pragma solidity ^0.8.0;
 
@@ -2345,15 +2302,10 @@ contract Whitelist is Context {
   } 
 }
 
-
-
-
 /** 
  *  SourceUnit: c:\xampp\htdocs\sharessmartcontract\contracts\SwissShares.sol
 */
             
-// SPDX-License-Identifier: MIT
-
 pragma solidity ^0.8.0;
 
 ////import "@openzeppelin/contracts/utils/Context.sol";
@@ -2393,15 +2345,10 @@ contract Admin is Context {
   }
 }
 
-
-
-
 /** 
  *  SourceUnit: c:\xampp\htdocs\sharessmartcontract\contracts\SwissShares.sol
 */
             
-// SPDX-License-Identifier: MIT
-
 pragma solidity ^0.8.0;
 
 ////import { EIP712Domain } from "./EIP712Domain.sol";
@@ -2467,14 +2414,10 @@ abstract contract EIP2612 is EIP712Domain {
     ) internal virtual;
 }
 
-
-
 /** 
  *  SourceUnit: c:\xampp\htdocs\sharessmartcontract\contracts\SwissShares.sol
 */
             
-// SPDX-License-Identifier: MIT
-
 pragma solidity ^0.8.0;
 
 ////import { EIP712Domain } from "./EIP712Domain.sol";
@@ -2681,13 +2624,9 @@ abstract contract EIP3009 is EIP712Domain {
     ) internal virtual;
 }
 
-
-
 /** 
  *  SourceUnit: c:\xampp\htdocs\sharessmartcontract\contracts\SwissShares.sol
 */
-            
-// SPDX-License-Identifier: MIT
 
 pragma solidity ^0.8.0;
 
@@ -2874,15 +2813,10 @@ library EnumerableSet {
     }
 }
 
-
-
-
 /** 
  *  SourceUnit: c:\xampp\htdocs\sharessmartcontract\contracts\SwissShares.sol
 */
             
-// SPDX-License-Identifier: MIT
-
 pragma solidity ^0.8.0;
 
 ////import "../ERC20.sol";
@@ -2914,12 +2848,9 @@ abstract contract ERC20Pausable is ERC20, Pausable {
     }
 }
 
-
 /** 
  *  SourceUnit: c:\xampp\htdocs\sharessmartcontract\contracts\SwissShares.sol
 */
-
-// SPDX-License-Identifier: MIT
 
 pragma solidity ^0.8.0;
 
